@@ -1,8 +1,10 @@
 package com.example.remainderapp;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.add:
-                Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, dialogbox.class);
+                startActivity(intent);
                 return true;
             case R.id.close:
-                Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show();
+                finish();
+                System.exit(0);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
